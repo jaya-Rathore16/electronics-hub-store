@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronics Hub</title>
+
+    <style>
+        body {
+             padding-top: 90px;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: #F4F4F4;
+            color: #f2f2f2;
+            
+}
+        
+
+        header {
+            background: linear-gradient(90deg, #0C2B4E, #1A3D64);
+            padding: 18px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            color: white;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #1D546C, #1A3D64);
+            color: #fff;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        .btn {
+            background: #1A3D64;
+            padding: 12px 25px;
+            border-radius: 7px;
+            color: white;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 2rem;
+            color: #0C2B4E;
+            font-weight: 700;
+        }
+
+        .products {
+            width: 90%;
+            max-width: 1300px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding-bottom: 20px;
+            transition: 0.3s;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+        .product-img {
+            background: #1D546C;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+            color: #d9eaff;
+        }
+        .product-info {
+            padding: 20px;
+            text-align: center;
+            color: #333;
+        }
+        .price {
+            color: #0C2B4E;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #0C2B4E;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* CUSTOM CURSOR */
+        body {
+            cursor: none;
+        }
+
+        .cursor-dot {
+            width: 12px;
+            height: 12px;
+            background: #1A3D64;
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+            box-shadow: 0 0 15px #1A3D64;
+        }
+
+        .cursor-outline {
+            width: 35px;
+            height: 35px;
+            border: 2px solid #1D546C;
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            transition: 0.15s ease-out;
+            z-index: 9998;
+            box-shadow: 0 0 20px #1D546C;
+        }
+        .product-img {
+            width: 100%;
+            height: 300px;     /* card height fixed */
+            background: #fff;  /* white clean background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            box-sizing: border-box;
+            
+            
+        }
+
+        .product-img img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;   /* NO CROPPING */
+        }
+/* CATEGORY DROPDOWN MENU */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropbtn {
+            color: white;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #1A3D64;
+            min-width: 250px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .dropdown-content a {
+            color: #fff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 15px;
+        }
+
+        .dropdown-content a:hover {
+            background: #0C2B4E;
+        }
+
+        /* Show menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    
+
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="logo">⚡Shyam Electronics Hub</div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/admin">Admin</a></li>
+                <li class="dropdown">
+                <a href="#" class="dropbtn">Category ▼</a>
+                <div class="dropdown-content">
+                    <a href="/category/mobiles">📱 Mobiles & Tablets</a>
+                    <a href="/category/audio">🎧 Audio & Headphones</a>
+                    <a href="/category/laptops">💻 Laptops & Computers</a>
+                    <a href="/category/tv">📺 TV & Entertainment</a>
+                    <a href="/category/appliances">🏠 Home Appliances</a>
+                    <a href="/category/accessories">🔌 Accessories</a>
+                    <a href="/category/smartgadget">⌚ Smart Gadgets</a>
+                </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+
+<div class="hero">
+    <h1>Premium Electronics</h1>
+    <p>Modern Blue-Themed Tech Store</p>
+    <a class="btn">Shop Now</a>
+</div>
+
+<h2 class="section-title">Featured Products</h2>
+
+<div class="products">
+    {% for product in products %}
+        <div class="product-card">
+            <div class="product-img">
+                <img src="/static/uploads/{{ product[4] }}" alt="">
+            </div>
+
+            <div class="product-info">
+                <h3>{{ product[1] }}</h3>
+                <p>{{ product[2] }}</p>
+                <div class="price">₹{{ product[3] }}</div>
+            </div>
+        </div>
+        
+    
+    {% endfor %}
+</div>
+
+<footer>
+    <div class="footer-box">
+
+        <h2> Our Store</h2>
+        <p>Shyam Electronics Hub – Premium Store</p>
+        <p>Shree Shyam Electornics Near SBI Bank Mangliya, indore(453771)</p>
+        <p>
+            <a href="https://maps.app.goo.gl/7Zdi35YtXff6oFQy9" 
+            target="_blank" 
+            style="color:#fff; text-decoration:underline; font-weight:600;">
+            📍Geo Location
+            </a>
+        </p>
+
+        
+
+    
+
+
+        <h3>📞 Contact Us</h3>
+        <p>Phone: 
+            
+        <b>+91 9752213885</b></p>
+        <p>
+            <a href="tel:+91 9752323842"
+            style="color:#fff; text-decoration:underline; font-weight:600;">
+            📞 +91 9752323842
+            </a>
+        </p>
+
+        <p>
+            <a href="https://wa.me/+919752213885" target="_blank"
+            style="display:inline-block; background:#25D366; padding:8px 15px; 
+                    border-radius:6px; color:white; text-decoration:none; font-weight:600;">
+                💬 Chat on WhatsApp
+            </a>
+        </p>
+
+
+
+        <p>
+            <a href="mailto:shrishyamelectronicandmobile@gmail.com"
+            style="color:#fff; text-decoration:underline; font-weight:600;">
+            Email
+            </a>
+        </p>
+
+
+        <h3>🕒 Timings</h3>
+        <p>Mon – Sun : 8:00 AM to 10:00 PM</p>
+
+        <p style="margin-top:20px;">Electronics Hub | All Rights Reserved</p>
+
+        | THANK YOU FOR VISITING US! | COME BACK SOON! |
+    </div>
+</footer>
+
+</body>
+
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+
+<script>
+    const dot = document.querySelector(".cursor-dot");
+    const outline = document.querySelector(".cursor-outline");
+
+    window.addEventListener("mousemove", (e) => {
+        dot.style.left = e.clientX + "px";
+        dot.style.top = e.clientY + "px";
+
+        outline.style.left = e.clientX + "px";
+        outline.style.top = e.clientY + "px";
+    });
+</script>
+
+</html>

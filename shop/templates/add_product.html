@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Product</title>
+    <style>
+        body { font-family: Poppins; background: #F4F4F4; padding: 40px; }
+        .box {
+            width: 400px;
+            margin: auto;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        input, textarea {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 7px;
+            border: 1px solid #1D546C;
+        }
+        button {
+            background: #1A3D64;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Add New Product</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Product Name" required>
+        <textarea name="description" placeholder="Product Description" required></textarea>
+        <input type="number" name="price" placeholder="Price" required>
+        <select name="category" required>
+        <option value="mobiles">📱 Mobiles & Tablets</option>
+        <option value="audio">🎧 Audio & Headphones</option>
+        <option value="laptops">💻 Laptops & Computers</option>
+        <option value="tv">📺 TV & Entertainment</option>
+        <option value="appliances">🏠 Home Appliances</option>
+        <option value="accessories">🔌 Accessories</option>
+        <option value="smartgadgets">⌚ Smart Gadgets</option>
+        </select>
+
+
+        <p>Upload Product Image</p>
+        <input type="file" name="image" required>
+
+        <button>Add Product</button>
+    </form>
+</div>
+
+</body>
+</html>
